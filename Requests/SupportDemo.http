@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:8080
+
+### Application availability
+GET {{baseUrl}}/health
+
+### Database availability
+GET {{baseUrl}}/health/db
+
+### Create ticket
+POST {{baseUrl}}/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Не открывается личный кабинет",
+  "description": "При входе появляется сообщение об ошибке"
+}
+
+### List tickets
+GET {{baseUrl}}/api/tickets
+
+### Get created ticket (replace 1 with returned id)
+GET {{baseUrl}}/api/tickets/1
+
+### Set status (replace 1 with returned id)
+PATCH {{baseUrl}}/api/tickets/1/status
+Content-Type: application/json
+
+{
+  "status": "InProgress"
+}
